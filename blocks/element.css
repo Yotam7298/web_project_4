@@ -30,4 +30,16 @@
   overflow: hidden;
   text-align: center;
   margin: 0;
+  max-width: 220px;
+}
+
+.element__like-button {
+  transition: opacity 0.2s linear;
+  cursor: pointer;
+  fill: black;
+  margin: auto 0;
+  width: 21px;
+}
+.element__like-button:hover {
+  opacity: 0.5;
 }
