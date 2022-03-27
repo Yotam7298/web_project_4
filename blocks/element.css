@@ -1,0 +1,45 @@
+.element {
+  background-color: white;
+  color: black;
+  margin: 0;
+  border-radius: 10px;
+  width: 100%;
+  height: 361px;
+  overflow: hidden;
+  font-family: Inter, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29.05px;
+}
+
+.element__image {
+  vertical-align: middle;
+}
+
+.element__image-caption {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px auto 0;
+  padding: 0;
+  width: 246px;
+}
+
+.element__caption-text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+  margin: 0;
+  max-width: 220px;
+}
+
+.element__like-button {
+  transition: opacity 0.2s linear;
+  cursor: pointer;
+  fill: black;
+  margin: auto 0;
+  width: 21px;
+}
+.element__like-button:hover {
+  opacity: 0.5;
+}
