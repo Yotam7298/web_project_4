@@ -1,0 +1,41 @@
+.form__fieldset {
+  margin: calc(76px - 22 * ((100vw - 320px) / 960)) 0
+    calc(25px + 11.5 * ((100vw - 320px) / 960)) 0;
+  padding: 0;
+  border: none;
+  text-align: center;
+}
+
+.form__input {
+  width: calc(238px + 120 * ((100vw - 320px) / 960));
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.95em;
+}
+
+.form__input:last-of-type {
+  margin-top: 30px;
+}
+
+.form__button {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  border: none;
+  line-height: 0;
+}
+
+.form__save {
+  width: calc(238px + 120 * ((100vw - 320px) / 960));
+  border: none;
+  margin-top: calc(46px + 2 * ((100vw - 320px) / 960));
+}
+
+.form__save:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}

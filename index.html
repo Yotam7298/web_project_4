@@ -142,6 +142,43 @@
         </section>
       </main>
       <footer class="footer">© 2021 Around The U.S.</footer>
+      <div class="edit-form__overlay">
+        <div class="edit-form">
+          <img
+            src="./images/add-button.svg"
+            alt="close form button"
+            class="edit-form__close"
+          />
+          <h2 class="edit-form__title">Edit profile</h2>
+          <form class="form edit-form__form">
+            <fieldset class="form__fieldset">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Name"
+                required
+                class="form__input"
+              />
+              <input
+                type="text"
+                name="title"
+                id="title"
+                placeholder="Title"
+                required
+                class="form__input"
+              />
+              <button class="form__button">
+                <img
+                  src="./images/save-button.svg"
+                  alt="save button"
+                  class="form__save"
+                />
+              </button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>
