@@ -24,4 +24,4 @@ This is a special project to lets anyone upload their photos for everyone to see
 
 **GitHub Page**
 
-The project main branch is available online on GitHub Pages, it can be accessed with [this link](https://yotam7298.github.io/web_project_3/index.html)
+The project main branch is available online on GitHub Pages, it can be accessed with [this link](https://yotam7298.github.io/web_project_4/index.html)

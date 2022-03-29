@@ -30,6 +30,12 @@
 }
 
 .profile__edit-button {
+  background-color: black;
+  background-image: url(../images/edit-button.svg);
+  background-repeat: no-repeat;
+  background-size: calc(18px + 6 * ((100vw - 320px) / 960));
+  background-position: center;
+  border: 0;
   width: calc(18px + 6 * ((100vw - 320px) / 960));
   margin-left: calc(10px + 8 * ((100vw - 320px) / 960));
   transition: opacity 0.2s linear;
@@ -41,9 +47,13 @@
 }
 
 .profile__add-button {
+  background-color: black;
+  background-image: url(../images/add-button.svg);
+  background-repeat: no-repeat;
+  background-position: center;
   margin-left: 30px;
-  width: calc(18px + 4 * ((100vw - 320px) / 960));
-  padding: 14px 64px;
+  width: 150px;
+  height: 50px;
   border: 2px solid white;
   border-radius: 2px;
   transition: opacity 0.2s linear;
@@ -74,6 +84,6 @@
 
   .profile__add-button {
     margin: 0;
-    padding: 17px 133px;
+    width: 282px;
   }
 }

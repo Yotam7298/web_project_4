@@ -28,10 +28,16 @@
 }
 
 .popup__close-button {
+  background-size: cover;
+  background-color: transparent;
+  background-image: url(../images/add-button.svg);
+  border: 0;
+  padding: 0;
   position: absolute;
   right: calc(0px - 40 * ((100vw - 320px) / 960));
   top: calc(-22px - 18 * ((100vw - 320px) / 960));
   width: calc(22px + 18 * ((100vw - 320px) / 960));
+  height: calc(22px + 18 * ((100vw - 320px) / 960));
   transform: rotate(45deg);
   transition: opacity 0.2s linear;
 }

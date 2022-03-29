@@ -34,169 +34,99 @@
           <div class="profile__info">
             <h1 class="profile__name">
               <span class="profile__name-text">Jacques Cousteau</span>
-              <img
-                src="./images/edit-button.svg"
-                alt="edit button for the profile info"
-                class="profile__edit-button"
-              />
+              <button type="button" class="profile__edit-button"></button>
             </h1>
             <p class="profile__about">Explorer</p>
           </div>
-          <img
-            src="./images/add-button.svg"
-            alt="button for adding a picture"
-            class="profile__add-button"
-          />
+          <button type="button" class="profile__add-button"></button>
         </section>
         <section class="elements">
-          <figure class="element">
-            <img
-              src="./images/yosemite-valley.jpg"
-              alt="yosemite valley view"
-              class="element__image"
-            />
-            <figcaption class="element__image-caption">
-              <p class="element__caption-text">Yosemite Valley</p>
-              <svg
-                class="element__like-button"
-                width="21"
-                height="19"
-                viewBox="0 0 21 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M19.3764 9.78586C21.5412 7.54338 21.5412 3.90213 19.3764 1.68186C17.2115 -0.560619 13.6964 -0.560619 11.5315 1.68186L10.4812 2.792L9.43098 1.70406C7.26614 -0.560619 3.75096 -0.560619 1.60755 1.68186C0.557285 2.76979 0 4.21297 0 5.74496C0 7.27695 0.578719 8.72013 1.60755 9.80806L10.4812 19L19.3764 9.78586ZM1.37178 5.74496C1.37178 4.59042 1.80046 3.52469 2.59352 2.72539C3.40801 1.88168 4.45828 1.45983 5.50855 1.45983C6.55882 1.45983 7.60909 1.88168 8.42358 2.72539L10.4812 4.83465L12.5389 2.70318C14.1465 1.03798 16.7829 1.03798 18.369 2.70318C19.1406 3.50248 19.5907 4.56821 19.5907 5.72276C19.5907 6.8773 19.162 7.94303 18.369 8.74233L10.4812 16.9351L2.59352 8.76453C1.82189 7.94303 1.37178 6.8773 1.37178 5.74496Z"
-                  fill="black"
+          <ul class="elements__list">
+            <li class="elements__list-item">
+              <article class="element">
+                <img
+                  src="./images/yosemite-valley.jpg"
+                  alt="yosemite valley view"
+                  class="element__image"
                 />
-              </svg>
-            </figcaption>
-          </figure>
-          <figure class="element">
-            <img
-              src="./images/lake-louise.jpg"
-              alt="lake louise view"
-              class="element__image"
-            />
-            <figcaption class="element__image-caption">
-              <p class="element__caption-text">Lake Louise</p>
-              <svg
-                class="element__like-button"
-                width="21"
-                height="19"
-                viewBox="0 0 21 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M19.3764 9.78586C21.5412 7.54338 21.5412 3.90213 19.3764 1.68186C17.2115 -0.560619 13.6964 -0.560619 11.5315 1.68186L10.4812 2.792L9.43098 1.70406C7.26614 -0.560619 3.75096 -0.560619 1.60755 1.68186C0.557285 2.76979 0 4.21297 0 5.74496C0 7.27695 0.578719 8.72013 1.60755 9.80806L10.4812 19L19.3764 9.78586ZM1.37178 5.74496C1.37178 4.59042 1.80046 3.52469 2.59352 2.72539C3.40801 1.88168 4.45828 1.45983 5.50855 1.45983C6.55882 1.45983 7.60909 1.88168 8.42358 2.72539L10.4812 4.83465L12.5389 2.70318C14.1465 1.03798 16.7829 1.03798 18.369 2.70318C19.1406 3.50248 19.5907 4.56821 19.5907 5.72276C19.5907 6.8773 19.162 7.94303 18.369 8.74233L10.4812 16.9351L2.59352 8.76453C1.82189 7.94303 1.37178 6.8773 1.37178 5.74496Z"
-                  fill="black"
+                <div class="element__image-caption">
+                  <h2 class="element__caption-text">Yosemite Valley</h2>
+                  <button type="button" class="element__like-button"></button>
+                </div>
+              </article>
+            </li>
+            <li class="elements__list-item">
+              <article class="element">
+                <img
+                  src="./images/lake-louise.jpg"
+                  alt="lake louise view"
+                  class="element__image"
                 />
-              </svg>
-            </figcaption>
-          </figure>
-          <figure class="element">
-            <img
-              src="./images/bald-mountains.jpg"
-              alt="bald mountains view"
-              class="element__image"
-            />
-            <figcaption class="element__image-caption">
-              <p class="element__caption-text">Bald Mountains</p>
-              <svg
-                class="element__like-button"
-                width="21"
-                height="19"
-                viewBox="0 0 21 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M19.3764 9.78586C21.5412 7.54338 21.5412 3.90213 19.3764 1.68186C17.2115 -0.560619 13.6964 -0.560619 11.5315 1.68186L10.4812 2.792L9.43098 1.70406C7.26614 -0.560619 3.75096 -0.560619 1.60755 1.68186C0.557285 2.76979 0 4.21297 0 5.74496C0 7.27695 0.578719 8.72013 1.60755 9.80806L10.4812 19L19.3764 9.78586ZM1.37178 5.74496C1.37178 4.59042 1.80046 3.52469 2.59352 2.72539C3.40801 1.88168 4.45828 1.45983 5.50855 1.45983C6.55882 1.45983 7.60909 1.88168 8.42358 2.72539L10.4812 4.83465L12.5389 2.70318C14.1465 1.03798 16.7829 1.03798 18.369 2.70318C19.1406 3.50248 19.5907 4.56821 19.5907 5.72276C19.5907 6.8773 19.162 7.94303 18.369 8.74233L10.4812 16.9351L2.59352 8.76453C1.82189 7.94303 1.37178 6.8773 1.37178 5.74496Z"
-                  fill="black"
+                <div class="element__image-caption">
+                  <h2 class="element__caption-text">Lake Louise</h2>
+                  <button type="button" class="element__like-button"></button>
+                </div>
+              </article>
+            </li>
+            <li class="elements__list-item">
+              <article class="element">
+                <img
+                  src="./images/bald-mountains.jpg"
+                  alt="bald mountains view"
+                  class="element__image"
                 />
-              </svg>
-            </figcaption>
-          </figure>
-          <figure class="element">
-            <img
-              src="./images/latemar.jpg"
-              alt="latemar view"
-              class="element__image"
-            />
-            <figcaption class="element__image-caption">
-              <p class="element__caption-text">Latemar</p>
-              <svg
-                class="element__like-button"
-                width="21"
-                height="19"
-                viewBox="0 0 21 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M19.3764 9.78586C21.5412 7.54338 21.5412 3.90213 19.3764 1.68186C17.2115 -0.560619 13.6964 -0.560619 11.5315 1.68186L10.4812 2.792L9.43098 1.70406C7.26614 -0.560619 3.75096 -0.560619 1.60755 1.68186C0.557285 2.76979 0 4.21297 0 5.74496C0 7.27695 0.578719 8.72013 1.60755 9.80806L10.4812 19L19.3764 9.78586ZM1.37178 5.74496C1.37178 4.59042 1.80046 3.52469 2.59352 2.72539C3.40801 1.88168 4.45828 1.45983 5.50855 1.45983C6.55882 1.45983 7.60909 1.88168 8.42358 2.72539L10.4812 4.83465L12.5389 2.70318C14.1465 1.03798 16.7829 1.03798 18.369 2.70318C19.1406 3.50248 19.5907 4.56821 19.5907 5.72276C19.5907 6.8773 19.162 7.94303 18.369 8.74233L10.4812 16.9351L2.59352 8.76453C1.82189 7.94303 1.37178 6.8773 1.37178 5.74496Z"
-                  fill="black"
+                <div class="element__image-caption">
+                  <h2 class="element__caption-text">Bald Mountains</h2>
+                  <button type="button" class="element__like-button"></button>
+                </div>
+              </article>
+            </li>
+            <li class="elements__list-item">
+              <article class="element">
+                <img
+                  src="./images/latemar.jpg"
+                  alt="latemar view"
+                  class="element__image"
                 />
-              </svg>
-            </figcaption>
-          </figure>
-          <figure class="element">
-            <img
-              src="./images/vanoise.jpg"
-              alt="vanoise national park view"
-              class="element__image"
-            />
-            <figcaption class="element__image-caption">
-              <p class="element__caption-text">Vanoise National Park</p>
-              <svg
-                class="element__like-button"
-                width="21"
-                height="19"
-                viewBox="0 0 21 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M19.3764 9.78586C21.5412 7.54338 21.5412 3.90213 19.3764 1.68186C17.2115 -0.560619 13.6964 -0.560619 11.5315 1.68186L10.4812 2.792L9.43098 1.70406C7.26614 -0.560619 3.75096 -0.560619 1.60755 1.68186C0.557285 2.76979 0 4.21297 0 5.74496C0 7.27695 0.578719 8.72013 1.60755 9.80806L10.4812 19L19.3764 9.78586ZM1.37178 5.74496C1.37178 4.59042 1.80046 3.52469 2.59352 2.72539C3.40801 1.88168 4.45828 1.45983 5.50855 1.45983C6.55882 1.45983 7.60909 1.88168 8.42358 2.72539L10.4812 4.83465L12.5389 2.70318C14.1465 1.03798 16.7829 1.03798 18.369 2.70318C19.1406 3.50248 19.5907 4.56821 19.5907 5.72276C19.5907 6.8773 19.162 7.94303 18.369 8.74233L10.4812 16.9351L2.59352 8.76453C1.82189 7.94303 1.37178 6.8773 1.37178 5.74496Z"
-                  fill="black"
+                <div class="element__image-caption">
+                  <h2 class="element__caption-text">Latemar</h2>
+                  <button type="button" class="element__like-button"></button>
+                </div>
+              </article>
+            </li>
+            <li class="elements__list-item">
+              <article class="element">
+                <img
+                  src="./images/vanoise.jpg"
+                  alt="vanoise national park view"
+                  class="element__image"
                 />
-              </svg>
-            </figcaption>
-          </figure>
-          <figure class="element">
-            <img
-              src="./images/lago-di-braies.jpg"
-              alt="lago di braies view"
-              class="element__image"
-            />
-            <figcaption class="element__image-caption">
-              <p class="element__caption-text">Lago di Braies</p>
-              <svg
-                class="element__like-button"
-                width="21"
-                height="19"
-                viewBox="0 0 21 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M19.3764 9.78586C21.5412 7.54338 21.5412 3.90213 19.3764 1.68186C17.2115 -0.560619 13.6964 -0.560619 11.5315 1.68186L10.4812 2.792L9.43098 1.70406C7.26614 -0.560619 3.75096 -0.560619 1.60755 1.68186C0.557285 2.76979 0 4.21297 0 5.74496C0 7.27695 0.578719 8.72013 1.60755 9.80806L10.4812 19L19.3764 9.78586ZM1.37178 5.74496C1.37178 4.59042 1.80046 3.52469 2.59352 2.72539C3.40801 1.88168 4.45828 1.45983 5.50855 1.45983C6.55882 1.45983 7.60909 1.88168 8.42358 2.72539L10.4812 4.83465L12.5389 2.70318C14.1465 1.03798 16.7829 1.03798 18.369 2.70318C19.1406 3.50248 19.5907 4.56821 19.5907 5.72276C19.5907 6.8773 19.162 7.94303 18.369 8.74233L10.4812 16.9351L2.59352 8.76453C1.82189 7.94303 1.37178 6.8773 1.37178 5.74496Z"
-                  fill="black"
+                <div class="element__image-caption">
+                  <h2 class="element__caption-text">Vanoise National Park</h2>
+                  <button type="button" class="element__like-button"></button>
+                </div>
+              </article>
+            </li>
+            <li class="elements__list-item">
+              <article class="element">
+                <img
+                  src="./images/lago-di-braies.jpg"
+                  alt="lago di braies view"
+                  class="element__image"
                 />
-              </svg>
-            </figcaption>
-          </figure>
+                <div class="element__image-caption">
+                  <h2 class="element__caption-text">Lago di Braies</h2>
+                  <button type="button" class="element__like-button"></button>
+                </div>
+              </article>
+            </li>
+          </ul>
         </section>
       </main>
       <footer class="footer">© 2021 Around The U.S.</footer>
       <div class="popup">
         <div class="popup__container">
-          <img
-            src="./images/add-button.svg"
-            alt="close form button"
-            class="popup__close-button"
-          />
+          <button type="button" class="popup__close-button"></button>
           <h2 class="popup__title">Edit profile</h2>
           <form class="form popup__form">
             <fieldset class="form__fieldset">
@@ -216,13 +146,7 @@
                 required
                 class="form__input"
               />
-              <button type="submit" class="form__button">
-                <img
-                  src="./images/save-button.svg"
-                  alt="save button"
-                  class="form__save"
-                />
-              </button>
+              <button type="submit" class="form__save"></button>
             </fieldset>
           </form>
         </div>

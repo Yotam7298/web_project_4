@@ -6,10 +6,6 @@
   width: 100%;
   height: 361px;
   overflow: hidden;
-  font-family: Inter, sans-serif;
-  font-weight: 900;
-  font-size: 24px;
-  line-height: 29.05px;
 }
 
 .element__image {
@@ -28,17 +24,24 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  text-align: center;
+  font-family: Inter, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29.05px;
   margin: 0;
   max-width: 220px;
 }
 
 .element__like-button {
-  transition: opacity 0.2s linear;
+  background-color: white;
+  background-image: url(../images/like-button.svg);
+  background-position: center;
+  border: none;
   cursor: pointer;
-  fill: black;
+  transition: opacity 0.2s linear;
   margin: auto 0;
   width: 21px;
+  height: 19px;
 }
 .element__like-button:hover {
   opacity: 0.5;
