@@ -7,19 +7,20 @@
 }
 
 .profile__info {
-  max-width: 415px;
   margin-left: 30px;
   margin-right: auto;
 }
 
 .profile__name {
+  display: flex;
+}
+
+.profile__name-text {
   font-family: Inter, sans-serif;
   font-weight: 500;
-  font-size: calc(22px + 20 * ((100vw - 320px) / 960));
+  font-size: min(calc(22px + 20 * ((100vw - 320px) / 960)), 42px);
   line-height: 48px;
   margin: 0;
-  display: flex;
-  flex-flow: row nowrap;
 }
 
 .profile__about {

@@ -1,17 +1,17 @@
-let container = document.querySelector(".page");
-let editForm = container.querySelector(".popup");
-let editButton = container.querySelector(".profile__edit-button");
-let closeButton = editForm.querySelector(".popup__close-button");
-let saveButton = editForm.querySelector(".form__save");
-let currentName = container.querySelector(".profile__name-text");
-let currentAbout = container.querySelector(".profile__about");
-let nameField = editForm.querySelector("#name");
-let aboutField = editForm.querySelector("#about");
-let likeButton = container.querySelector(".element__like-button");
+const container = document.querySelector(".page");
+const editForm = container.querySelector(".popup");
+const editButton = container.querySelector(".profile__edit-button");
+const closeButton = editForm.querySelector(".popup__close-button");
+const saveButton = editForm.querySelector(".form__save");
+const currentName = container.querySelector(".profile__name-text");
+const currentAbout = container.querySelector(".profile__about");
+const nameField = editForm.querySelector("#name");
+const aboutField = editForm.querySelector("#about");
+// const likeButton = container.querySelectorAll(".element__like-button");
 
-function handleLikeButton() {
-  likeButton.src = "./images/like-button_active.svg";
-}
+// function handleLikeButton() {
+//   likeButton.src = "./images/like-button_active.svg";
+// }
 
 function handleEditButton() {
   nameField.value = currentName.textContent;
@@ -27,10 +27,10 @@ function handleSaveButton(event) {
   event.preventDefault();
   currentName.textContent = nameField.value;
   currentAbout.textContent = aboutField.value;
-  editForm.classList.remove("popup_opened");
+  handleCloseButton();
 }
 
-likeButton.addEventListener("click", handleLikeButton);
+// likeButton.addEventListener("click", handleLikeButton);
 editButton.addEventListener("click", handleEditButton);
 closeButton.addEventListener("click", handleCloseButton);
-saveButton.addEventListener("click", handleSaveButton);
+editForm.addEventListener("submit", handleSaveButton);
