@@ -6,10 +6,32 @@
   width: 100%;
   height: 361px;
   overflow: hidden;
+  position: relative;
+}
+
+.element__remove-button {
+  background-image: url(../images/remove-button.svg);
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  width: 18px;
+  height: 20px;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  cursor: pointer;
+  transition: opacity 0.2s linear;
+}
+
+.element__remove-button:hover {
+  opacity: 0.6;
 }
 
 .element__image {
   vertical-align: middle;
+  width: 100%;
+  height: 282px;
+  object-fit: cover;
 }
 
 .element__image-caption {

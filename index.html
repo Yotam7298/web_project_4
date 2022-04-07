@@ -41,86 +41,7 @@
           <button type="button" class="profile__add-button"></button>
         </section>
         <section class="elements">
-          <ul class="elements__list">
-            <li class="elements__list-item">
-              <article class="element">
-                <img
-                  src="./images/yosemite-valley.jpg"
-                  alt="yosemite valley view"
-                  class="element__image"
-                />
-                <div class="element__image-caption">
-                  <h2 class="element__caption-text">Yosemite Valley</h2>
-                  <button type="button" class="element__like-button"></button>
-                </div>
-              </article>
-            </li>
-            <li class="elements__list-item">
-              <article class="element">
-                <img
-                  src="./images/lake-louise.jpg"
-                  alt="lake louise view"
-                  class="element__image"
-                />
-                <div class="element__image-caption">
-                  <h2 class="element__caption-text">Lake Louise</h2>
-                  <button type="button" class="element__like-button"></button>
-                </div>
-              </article>
-            </li>
-            <li class="elements__list-item">
-              <article class="element">
-                <img
-                  src="./images/bald-mountains.jpg"
-                  alt="bald mountains view"
-                  class="element__image"
-                />
-                <div class="element__image-caption">
-                  <h2 class="element__caption-text">Bald Mountains</h2>
-                  <button type="button" class="element__like-button"></button>
-                </div>
-              </article>
-            </li>
-            <li class="elements__list-item">
-              <article class="element">
-                <img
-                  src="./images/latemar.jpg"
-                  alt="latemar view"
-                  class="element__image"
-                />
-                <div class="element__image-caption">
-                  <h2 class="element__caption-text">Latemar</h2>
-                  <button type="button" class="element__like-button"></button>
-                </div>
-              </article>
-            </li>
-            <li class="elements__list-item">
-              <article class="element">
-                <img
-                  src="./images/vanoise.jpg"
-                  alt="vanoise national park view"
-                  class="element__image"
-                />
-                <div class="element__image-caption">
-                  <h2 class="element__caption-text">Vanoise National Park</h2>
-                  <button type="button" class="element__like-button"></button>
-                </div>
-              </article>
-            </li>
-            <li class="elements__list-item">
-              <article class="element">
-                <img
-                  src="./images/lago-di-braies.jpg"
-                  alt="lago di braies view"
-                  class="element__image"
-                />
-                <div class="element__image-caption">
-                  <h2 class="element__caption-text">Lago di Braies</h2>
-                  <button type="button" class="element__like-button"></button>
-                </div>
-              </article>
-            </li>
-          </ul>
+          <ul class="elements__list"></ul>
         </section>
       </main>
       <footer class="footer">
@@ -154,15 +75,22 @@
         </div>
       </div>
     </div>
-    <script src="./script/script.js"></script>
     <template id="element">
-      <article class="element">
-        <img
-          src="######"
-          alt="user's uploaded picture"
-          class="element__image"
-        />
-      </article>
+      <li class="elements__list-item">
+        <article class="element">
+          <button type="button" class="element__remove-button"></button>
+          <img
+            src="./images/vanoise.jpg"
+            alt="vanoise national park view"
+            class="element__image"
+          />
+          <div class="element__image-caption">
+            <h2 class="element__caption-text"></h2>
+            <button type="button" class="element__like-button"></button>
+          </div>
+        </article>
+      </li>
     </template>
+    <script src="./script/script.js"></script>
   </body>
 </html>
