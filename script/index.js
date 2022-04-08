@@ -1,14 +1,31 @@
+// CONSTANTS
+// Main container
 const container = document.querySelector(".page");
+
+// Edit form consts
 const editForm = container.querySelector(".edit-popup");
 const editButton = container.querySelector(".profile__edit-button");
 const editCloseButton = editForm.querySelector(".edit-popup__close-button");
-const imageCloseButton = container.querySelector(".image-popup__close-button");
+const nameField = editForm.querySelector("#name");
+const aboutField = editForm.querySelector("#about");
 const saveButton = editForm.querySelector(".form__save");
 const currentName = container.querySelector(".profile__name-text");
 const currentAbout = container.querySelector(".profile__about");
-const nameField = editForm.querySelector("#name");
-const aboutField = editForm.querySelector("#about");
-// const likeButton = container.querySelectorAll(".element__like-button");
+
+// Add form consts
+const addForm = container.querySelector(".add-popup");
+const addButton = container.querySelector(".profile__add-button");
+const addCloseButton = addForm.querySelector(".add-popup__close-button");
+const titleField = addForm.querySelector("#title");
+const linkField = addForm.querySelector("#link");
+const createButton = addForm.querySelector(".form__save");
+
+// Image popup consts
+const imagePopup = container.querySelector(".image-popup");
+const imageCloseButton = imagePopup.querySelector(".image-popup__close-button");
+const imageCaption = imagePopup.querySelector(".image-popup__caption");
+
+// Initial cards array
 const initialCards = [
   {
     name: "Lago di Braies",
@@ -36,10 +53,8 @@ const initialCards = [
   },
 ];
 
-initialCards.forEach((card) => {
-  createElement(card.link, card.name);
-});
-
+// FUNCTIONS
+// Edit form functions
 function handleEditButton() {
   nameField.value = currentName.textContent;
   aboutField.value = currentAbout.textContent;
@@ -50,19 +65,34 @@ function handleEditCloseButton() {
   editForm.classList.remove("edit-popup_opened");
 }
 
-function handleSaveButton(event) {
-  event.preventDefault();
+function handleSaveButton(evt) {
+  evt.preventDefault();
   currentName.textContent = nameField.value;
   currentAbout.textContent = aboutField.value;
   handleCloseButton();
 }
 
-function handleImageCloseButton() {
-  container
-    .querySelector(".image-popup")
-    .classList.remove("image-popup_opened");
+// Add form functions
+function handleAddButton() {
+  addForm.classList.add("add-popup_opened");
 }
 
+function handleAddCloseButton() {
+  addForm.classList.remove("add-popup_opened");
+}
+
+function handleCreateButton(evt) {
+  evt.preventDefault();
+  createElement(linkField.value, titleField.value);
+  addForm.classList.remove("add-popup_opened");
+}
+
+// Image popup function
+function handleImageCloseButton() {
+  imagePopup.classList.remove("image-popup_opened");
+}
+
+// Element creator function
 function createElement(link, name) {
   const elementTemplate = document.querySelector("#element").content;
   const elementsList = document.querySelector(".elements__list");
@@ -75,8 +105,9 @@ function createElement(link, name) {
   element.querySelector(".element__caption-text").textContent = name;
 
   element.querySelector(".element__image").addEventListener("click", (evt) => {
-    container.querySelector(".image-popup").classList.add("image-popup_opened");
-    container.querySelector(".image-popup__image").src = evt.target.src;
+    imagePopup.classList.add("image-popup_opened");
+    imagePopup.querySelector(".image-popup__image").src = evt.target.src;
+    imagePopup.querySelector(".image-popup__caption").textContent = name;
   });
 
   element
@@ -85,11 +116,28 @@ function createElement(link, name) {
       element.remove();
     });
 
+  element
+    .querySelector(".element__like-button")
+    .addEventListener("click", (evt) => {
+      evt.target.classList.toggle("element__like-button_active");
+    });
+
   elementsList.prepend(element);
 }
 
-// likeButton.addEventListener("click", handleLikeButton);
+// EVENT LISTENERS
+// Edit form listeners
 editButton.addEventListener("click", handleEditButton);
 editCloseButton.addEventListener("click", handleEditCloseButton);
 editForm.addEventListener("submit", handleSaveButton);
+// Add form listeners
+addButton.addEventListener("click", handleAddButton);
+addCloseButton.addEventListener("click", handleAddCloseButton);
+addForm.addEventListener("submit", handleCreateButton);
+// Image popup listener
 imageCloseButton.addEventListener("click", handleImageCloseButton);
+
+// INITIAL FUNCTION
+initialCards.forEach((card) => {
+  createElement(card.link, card.name);
+});

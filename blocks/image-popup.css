@@ -12,7 +12,6 @@
 }
 
 .image-popup_opened {
-  /* height: 100%; */
   opacity: 1;
   z-index: 1;
   transition: opacity 0.2s linear;
@@ -48,4 +47,12 @@
 .image-popup__image {
   max-width: 75vw;
   max-height: 75vh;
+}
+
+.image-popup__caption {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.21;
+  margin: 10px 0 0;
 }
