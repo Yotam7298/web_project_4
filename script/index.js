@@ -69,7 +69,7 @@ function handleSaveButton(evt) {
   evt.preventDefault();
   currentName.textContent = nameField.value;
   currentAbout.textContent = aboutField.value;
-  handleCloseButton();
+  handleEditCloseButton();
 }
 
 // Add form functions
