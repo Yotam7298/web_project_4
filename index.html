@@ -41,96 +41,17 @@
           <button type="button" class="profile__add-button"></button>
         </section>
         <section class="elements">
-          <ul class="elements__list">
-            <li class="elements__list-item">
-              <article class="element">
-                <img
-                  src="./images/yosemite-valley.jpg"
-                  alt="yosemite valley view"
-                  class="element__image"
-                />
-                <div class="element__image-caption">
-                  <h2 class="element__caption-text">Yosemite Valley</h2>
-                  <button type="button" class="element__like-button"></button>
-                </div>
-              </article>
-            </li>
-            <li class="elements__list-item">
-              <article class="element">
-                <img
-                  src="./images/lake-louise.jpg"
-                  alt="lake louise view"
-                  class="element__image"
-                />
-                <div class="element__image-caption">
-                  <h2 class="element__caption-text">Lake Louise</h2>
-                  <button type="button" class="element__like-button"></button>
-                </div>
-              </article>
-            </li>
-            <li class="elements__list-item">
-              <article class="element">
-                <img
-                  src="./images/bald-mountains.jpg"
-                  alt="bald mountains view"
-                  class="element__image"
-                />
-                <div class="element__image-caption">
-                  <h2 class="element__caption-text">Bald Mountains</h2>
-                  <button type="button" class="element__like-button"></button>
-                </div>
-              </article>
-            </li>
-            <li class="elements__list-item">
-              <article class="element">
-                <img
-                  src="./images/latemar.jpg"
-                  alt="latemar view"
-                  class="element__image"
-                />
-                <div class="element__image-caption">
-                  <h2 class="element__caption-text">Latemar</h2>
-                  <button type="button" class="element__like-button"></button>
-                </div>
-              </article>
-            </li>
-            <li class="elements__list-item">
-              <article class="element">
-                <img
-                  src="./images/vanoise.jpg"
-                  alt="vanoise national park view"
-                  class="element__image"
-                />
-                <div class="element__image-caption">
-                  <h2 class="element__caption-text">Vanoise National Park</h2>
-                  <button type="button" class="element__like-button"></button>
-                </div>
-              </article>
-            </li>
-            <li class="elements__list-item">
-              <article class="element">
-                <img
-                  src="./images/lago-di-braies.jpg"
-                  alt="lago di braies view"
-                  class="element__image"
-                />
-                <div class="element__image-caption">
-                  <h2 class="element__caption-text">Lago di Braies</h2>
-                  <button type="button" class="element__like-button"></button>
-                </div>
-              </article>
-            </li>
-          </ul>
+          <ul class="elements__list"></ul>
         </section>
       </main>
       <footer class="footer">
         <p class="footer__copyright">© 2021 Around The U.S.</p>
       </footer>
-      <div class="popup">
-        <div class="popup__container">
-          <button type="button" class="popup__close-button"></button>
-          <h2 class="popup__title">Edit profile</h2>
-          <form class="form popup__form">
+      <div class="edit-popup">
+        <div class="edit-popup__container">
+          <button type="button" class="edit-popup__close-button"></button>
+          <h2 class="edit-popup__title">Edit profile</h2>
+          <form class="form edit-popup__form">
             <fieldset class="form__fieldset">
               <input
                 type="text"
@@ -153,16 +74,61 @@
           </form>
         </div>
       </div>
+      <div class="add-popup">
+        <div class="add-popup__container">
+          <button type="button" class="add-popup__close-button"></button>
+          <h2 class="edit-popup__title">New place</h2>
+          <form class="form add-popup__form">
+            <fieldset class="form__fieldset">
+              <input
+                type="text"
+                name="title"
+                id="title"
+                placeholder="Title"
+                required
+                class="form__input"
+              />
+              <input
+                type="text"
+                name="link"
+                id="link"
+                placeholder="Image link"
+                required
+                class="form__input"
+              />
+              <button type="submit" class="form__save"></button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <div class="image-popup">
+        <div class="image-popup__container">
+          <button type="button" class="image-popup__close-button"></button>
+          <img
+            src=" "
+            alt="enlarged user uploaded picture"
+            class="image-popup__image"
+          />
+          <p class="image-popup__caption"></p>
+        </div>
+      </div>
     </div>
-    <script src="./script/script.js"></script>
     <template id="element">
-      <article class="element">
-        <img
-          src="######"
-          alt="user's uploaded picture"
-          class="element__image"
-        />
-      </article>
+      <li class="elements__list-item">
+        <article class="element">
+          <button type="button" class="element__remove-button"></button>
+          <img
+            src="      "
+            alt="user uploaded picture"
+            class="element__image"
+          />
+          <div class="element__image-caption">
+            <h2 class="element__caption-text"></h2>
+            <button type="button" class="element__like-button"></button>
+          </div>
+        </article>
+      </li>
     </template>
+    <script src="./script/index.js"></script>
   </body>
 </html>
