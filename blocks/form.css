@@ -31,6 +31,7 @@
 
 .form__save {
   background-color: white;
+  background-image: url(../images/save-button.svg);
   background-position: center;
   padding: 0;
   width: calc(238px + 120 * ((100vw - 320px) / 960));
@@ -38,14 +39,6 @@
   border: none;
   margin-top: calc(46px + 2 * ((100vw - 320px) / 960));
   transition: opacity 0.2s linear;
-}
-
-.edit-popup .form__save {
-  background-image: url(../images/save-button.svg);
-}
-
-.add-popup .form__save {
-  background-image: url(../images/create-button.svg);
 }
 
 .form__save:hover {
