@@ -2,19 +2,23 @@
 // Main container
 const container = document.querySelector(".page");
 
-// Edit form consts
-const editForm = container.querySelector(".edit-popup");
-const editButton = container.querySelector(".profile__edit-button");
-const editCloseButton = editForm.querySelector(".edit-popup__close-button");
-const nameField = editForm.querySelector("#name");
-const aboutField = editForm.querySelector("#about");
+// EditProfile form consts
+const editProfileForm = container.querySelector(".edit-popup");
+const editProfileButton = container.querySelector(".profile__edit-button");
+const editProfileCloseButton = editProfileForm.querySelector(
+  ".edit-popup__close-button"
+);
+const nameField = editProfileForm.querySelector("#name");
+const aboutField = editProfileForm.querySelector("#about");
 const currentName = container.querySelector(".profile__name-text");
 const currentAbout = container.querySelector(".profile__about");
 
 // Add form consts
-const addForm = container.querySelector(".add-popup");
-const addButton = container.querySelector(".profile__add-button");
-const addCloseButton = addForm.querySelector(".add-popup__close-button");
+const addCardForm = container.querySelector(".add-popup");
+const addCardButton = container.querySelector(".profile__add-button");
+const addCardCloseButton = addCardForm.querySelector(
+  ".add-popup__close-button"
+);
 
 // Image popup consts
 const imagePopup = container.querySelector(".image-popup");
@@ -50,46 +54,46 @@ const initialCards = [
 ];
 
 // FUNCTIONS
-// Edit form functions
-function handleEditButton() {
+// EditProfile form functions
+function handleEditProfileButton() {
   fillProfileForm();
-  openPopup(editForm);
+  openPopup(editProfileForm);
 }
 function fillProfileForm() {
   nameField.value = currentName.textContent;
   aboutField.value = currentAbout.textContent;
 }
 
-function handleEditCloseButton() {
-  closePopup(editForm);
+function handleEditProfileCloseButton() {
+  closePopup(editProfileForm);
 }
 
 function handleSaveProfileButton(evt) {
   evt.preventDefault();
   currentName.textContent = nameField.value;
   currentAbout.textContent = aboutField.value;
-  handleEditCloseButton();
+  handleEditProfileCloseButton();
 }
 
 // Add form functions
-function handleAddButton() {
-  openPopup(addForm);
+function handleAddCardButton() {
+  openPopup(addCardForm);
 }
 
-function handleAddCloseButton() {
-  closePopup(addForm);
+function handleAddCardCloseButton() {
+  closePopup(addCardForm);
 }
 
 function handleCreateButton(evt) {
   const newCard = {
-    name: addForm.querySelector("#title").value,
-    link: addForm.querySelector("#link").value,
+    name: addCardForm.querySelector("#title").value,
+    link: addCardForm.querySelector("#link").value,
   };
 
   evt.preventDefault();
   renderCard(newCard);
-  addForm.querySelector(".form").reset();
-  closePopup(addForm);
+  addCardForm.querySelector(".form").reset();
+  closePopup(addCardForm);
 }
 
 // Image popup function
@@ -107,7 +111,7 @@ function createElement(card) {
   const elementText = element.querySelector(".element__caption-text");
 
   elementImage.src = card.link;
-  elementImage.alt = `A user uploaded photo named ${card.name}`;
+  elementImage.alt = `A user uploaded photo titled ${card.name}`;
   elementText.textContent = card.name;
 
   elementImage.addEventListener("click", (evt) => {
@@ -118,7 +122,7 @@ function createElement(card) {
 
   element
     .querySelector(".element__remove-button")
-    .addEventListener("click", removeElement(element));
+    .addEventListener("click", () => removeElement(element));
 
   element
     .querySelector(".element__like-button")
@@ -151,14 +155,14 @@ function renderCard(newCard) {
 }
 
 // EVENT LISTENERS
-// Edit form listeners
-editButton.addEventListener("click", handleEditButton);
-editCloseButton.addEventListener("click", handleEditCloseButton);
-editForm.addEventListener("submit", handleSaveProfileButton);
+// EditProfile form listeners
+editProfileButton.addEventListener("click", handleEditProfileButton);
+editProfileCloseButton.addEventListener("click", handleEditProfileCloseButton);
+editProfileForm.addEventListener("submit", handleSaveProfileButton);
 // Add form listeners
-addButton.addEventListener("click", handleAddButton);
-addCloseButton.addEventListener("click", handleAddCloseButton);
-addForm.addEventListener("submit", handleCreateButton);
+addCardButton.addEventListener("click", handleAddCardButton);
+addCardCloseButton.addEventListener("click", handleAddCardCloseButton);
+addCardForm.addEventListener("submit", handleCreateButton);
 // Image popup listener
 imageCloseButton.addEventListener("click", handleImageCloseButton);
 
