@@ -11,7 +11,7 @@
   z-index: -1;
 }
 
-.image-popup_opened {
+.popup_opened {
   opacity: 1;
   z-index: 1;
   transition: opacity 0.2s linear;

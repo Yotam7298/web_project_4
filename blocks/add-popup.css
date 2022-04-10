@@ -9,8 +9,7 @@
   z-index: -1;
   transition: opacity 0.2s linear, z-index 0.2s linear;
 }
-
-.add-popup_opened {
+.popup_opened {
   opacity: 1;
   z-index: 1;
   transition: opacity 0.2s linear;
