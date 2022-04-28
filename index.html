@@ -51,24 +51,30 @@
         <div class="edit-popup__container">
           <button type="button" class="edit-popup__close-button"></button>
           <h2 class="edit-popup__title">Edit profile</h2>
-          <form class="form edit-popup__form">
+          <form class="form edit-popup__form" novalidate>
             <fieldset class="form__fieldset">
               <input
                 type="text"
                 name="name"
-                id="name"
+                id="name-input"
                 placeholder="Name"
+                minlength="2"
+                maxlength="40"
                 required
                 class="form__input"
               />
+              <span class="name-input-error form__input-error"></span>
               <input
                 type="text"
                 name="about"
-                id="about"
+                id="about-input"
                 placeholder="About me"
+                minlength="2"
+                maxlength="200"
                 required
                 class="form__input"
               />
+              <span class="name-input-error form__input-error"></span>
               <button type="submit" class="form__save"></button>
             </fieldset>
           </form>
@@ -78,24 +84,29 @@
         <div class="add-popup__container">
           <button type="button" class="add-popup__close-button"></button>
           <h2 class="add-popup__title">New place</h2>
-          <form class="form add-popup__form">
+          <form class="form add-popup__form" novalidate>
             <fieldset class="form__fieldset">
               <input
+                12
                 type="text"
                 name="title"
-                id="title"
+                id="title-input"
                 placeholder="Title"
+                minlength="1"
+                maxlength="30"
                 required
                 class="form__input"
               />
+              <span class="title-input-error form__input-error"></span>
               <input
-                type="text"
+                type="url"
                 name="link"
-                id="link"
+                id="link-input"
                 placeholder="Image link"
                 required
                 class="form__input"
               />
+              <span class="link-input-error form__input-error"></span>
               <button type="submit" class="form__save"></button>
             </fieldset>
           </form>
@@ -130,5 +141,6 @@
       </li>
     </template>
     <script src="./script/index.js"></script>
+    <script src="./script/validate.js"></script>
   </body>
 </html>

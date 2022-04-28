@@ -8,8 +8,8 @@ const editProfileButton = container.querySelector(".profile__edit-button");
 const editProfileCloseButton = editProfileForm.querySelector(
   ".edit-popup__close-button"
 );
-const nameField = editProfileForm.querySelector("#name");
-const aboutField = editProfileForm.querySelector("#about");
+const nameField = editProfileForm.querySelector("#name-input");
+const aboutField = editProfileForm.querySelector("#about-input");
 const currentName = container.querySelector(".profile__name-text");
 const currentAbout = container.querySelector(".profile__about");
 
@@ -86,8 +86,8 @@ function handleAddCardCloseButton() {
 
 function handleCreateButton(evt) {
   const newCard = {
-    name: addCardForm.querySelector("#title").value,
-    link: addCardForm.querySelector("#link").value,
+    name: addCardForm.querySelector("#title-input").value,
+    link: addCardForm.querySelector("#link-input").value,
   };
 
   evt.preventDefault();
