@@ -26,7 +26,7 @@
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.form__input:invalid {
+.form__input_invalid {
   border-bottom: 1px solid red;
 }
 
@@ -44,6 +44,11 @@
   color: red;
   align-self: flex-start;
   margin-left: 30px;
+  display: none;
+}
+
+.form__input-error_active {
+  display: block;
 }
 
 .form__button {
@@ -69,6 +74,7 @@
 
 .form__save_disabled {
   background-image: url(../images/save-button_disabled.svg);
+  cursor: default;
 }
 
 .form__save:hover {
