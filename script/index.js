@@ -1,3 +1,5 @@
+import { resetValidation } from "./validate.js";
+
 // CONSTANTS
 // Main container
 const container = document.querySelector(".page");
@@ -19,6 +21,8 @@ const addCardButton = container.querySelector(".profile__add-button");
 const addCardCloseButton = addCardForm.querySelector(
   ".add-popup__close-button"
 );
+const titleField = addCardForm.querySelector("#title-input");
+const linkField = addCardForm.querySelector("#link-input");
 
 // Image popup consts
 const imagePopup = container.querySelector(".image-popup");
@@ -58,6 +62,8 @@ const initialCards = [
 function editProfileButtonHandler() {
   fillProfileForm();
   openPopup(editProfileForm);
+
+  resetValidation(editProfileForm);
 }
 
 function fillProfileForm() {
@@ -78,10 +84,11 @@ function saveProfileButtonHandler(evt) {
 
 // Add form functions
 function addCardButtonHandler() {
-  const formElement = document.querySelector(".add-popup__form");
+  titleField.value = "";
+  linkField.value = "";
 
   openPopup(addCardForm);
-  toggleButtonState(getVariables(formElement));
+  resetValidation(addCardForm);
 }
 
 function addCardCloseButtonHandler() {
@@ -90,8 +97,8 @@ function addCardCloseButtonHandler() {
 
 function createButtonHandler(evt) {
   const newCard = {
-    name: addCardForm.querySelector("#title-input").value,
-    link: addCardForm.querySelector("#link-input").value,
+    name: titleField.value,
+    link: linkField.value,
   };
 
   evt.preventDefault();
@@ -152,17 +159,9 @@ function removeElement(element) {
 
 function renderCard(newCard) {
   const elementsList = document.querySelector(".elements__list");
-
-  element = createElement(newCard);
+  const element = createElement(newCard);
 
   elementsList.prepend(element);
-}
-
-function getVariables(selectedForm) {
-  const inputList = Array.from(selectedForm.querySelectorAll(".form__input"));
-  const buttonElement = selectedForm.querySelector(".form__save");
-
-  return { inputList, buttonElement };
 }
 
 function popupsClosingEvents() {

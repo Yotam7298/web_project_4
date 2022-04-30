@@ -1,6 +1,7 @@
 .form__fieldset {
   margin: calc(76px - 22 * ((100vw - 320px) / 960)) 0
     calc(25px + 11.5 * ((100vw - 320px) / 960)) 0;
+  max-width: 430px;
   padding: 0;
   border: none;
   text-align: center;
@@ -11,6 +12,7 @@
 
 .form__input {
   width: calc(238px + 120 * ((100vw - 320px) / 960));
+  max-width: 358px;
   padding: 0;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -36,6 +38,7 @@
 
 .form__input-error {
   width: calc(238px + 120 * ((100vw - 320px) / 960));
+  max-width: 358px;
   text-align: left;
   font-family: Inter, sans-serif;
   font-weight: 400;
@@ -43,7 +46,7 @@
   line-height: 15px;
   color: red;
   align-self: flex-start;
-  margin-left: 30px;
+  align-self: center;
   display: none;
 }
 
@@ -65,8 +68,9 @@
   background-repeat: no-repeat;
   padding: 0;
   width: calc(238px + 120 * ((100vw - 320px) / 960));
+  max-width: 358px;
+  border: none;
   height: calc(46px + 4 * ((100vw - 320px) / 960));
-  border: 1px solid rgba(0, 0, 0, 0.2);
   margin-top: calc(46px + 2 * ((100vw - 320px) / 960));
   transition: opacity 0.2s linear;
   background-image: url(../images/save-button.svg);
@@ -74,6 +78,7 @@
 
 .form__save_disabled {
   background-image: url(../images/save-button_disabled.svg);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   cursor: default;
 }
 
