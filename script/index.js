@@ -214,11 +214,11 @@ function checkClickCloseTrigger(evt) {
 }
 
 // EVENT LISTENERS
-// EditProfile form listeners
+// Edit Profile form listeners
 editProfileButton.addEventListener("click", openEditProfileForm);
 editProfileCloseButton.addEventListener("click", closeEditProfileForm);
 editProfileForm.addEventListener("submit", saveProfileButtonHandler);
-// Add form listeners
+// Add Card form listeners
 addCardButton.addEventListener("click", openAddCardForm);
 addCardCloseButton.addEventListener("click", closeAddCardForm);
 addCardForm.addEventListener("submit", createButtonHandler);
