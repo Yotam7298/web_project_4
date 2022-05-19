@@ -1,17 +1,17 @@
-import { resetValidation } from "./validate.js";
+import { FormValidator } from "./validate.js";
 
 // CONSTANTS
 // Main container
 const container = document.querySelector(".page");
 
 // EditProfile form consts
-const editProfileForm = container.querySelector(".edit-popup");
+const editProfilePopup = container.querySelector(".edit-popup");
 const editProfileButton = container.querySelector(".profile__edit-button");
-const editProfileCloseButton = editProfileForm.querySelector(
+const editProfileCloseButton = editProfilePopup.querySelector(
   ".edit-popup__close-button"
 );
-const nameField = editProfileForm.querySelector("#name-input");
-const aboutField = editProfileForm.querySelector("#about-input");
+const nameField = editProfilePopup.querySelector("#name-input");
+const aboutField = editProfilePopup.querySelector("#about-input");
 const currentName = container.querySelector(".profile__name-text");
 const currentAbout = container.querySelector(".profile__about");
 
@@ -29,6 +29,9 @@ const elementsList = document.querySelector(".elements__list");
 // Image popup consts
 const imagePopup = container.querySelector(".image-popup");
 const imageCloseButton = imagePopup.querySelector(".image-popup__close-button");
+
+const formsList = Array.from(document.querySelectorAll(".form"));
+const validatorsList = [];
 
 // Initial cards array
 const initialCards = [
@@ -62,16 +65,12 @@ const initialCards = [
 // EditProfile form functions
 function openEditProfileForm() {
   fillProfileForm();
-  openPopup(editProfileForm);
+  openPopup(editProfilePopup);
 
-  resetValidation(editProfileForm, {
-    formSelector: ".form",
-    inputSelector: ".form__input",
-    submitButtonSelector: ".form__save",
-    inactiveButtonClass: "form__save_disabled",
-    inputErrorClass: "form__input_invalid",
-    errorClass: "form__input-error_active",
-  });
+  const currentValidator = getFormValidator(
+    editProfilePopup.querySelector(".form")
+  );
+  currentValidator.resetValidation();
 }
 
 function fillProfileForm() {
@@ -91,14 +90,10 @@ function openAddCardForm() {
   addCardForm.querySelector(".form").reset();
 
   openPopup(addCardForm);
-  resetValidation(addCardForm, {
-    formSelector: ".form",
-    inputSelector: ".form__input",
-    submitButtonSelector: ".form__save",
-    inactiveButtonClass: "form__save_disabled",
-    inputErrorClass: "form__input_invalid",
-    errorClass: "form__input-error_active",
-  });
+
+  const currentValidator = getFormValidator(addCardForm.querySelector(".form"));
+
+  currentValidator.resetValidation();
 }
 
 function createButtonHandler(evt) {
@@ -154,11 +149,15 @@ function checkClickCloseTrigger(evt) {
   }
 }
 
+function getFormValidator(form) {
+  return validatorsList.find((valid) => valid.id === form.id).validator;
+}
+
 // EVENT LISTENERS
 // Edit Profile form listeners
 editProfileButton.addEventListener("click", openEditProfileForm);
 editProfileCloseButton.addEventListener("click", closePopup);
-editProfileForm.addEventListener("submit", saveProfileButtonHandler);
+editProfilePopup.addEventListener("submit", saveProfileButtonHandler);
 // Add Card form listeners
 addCardButton.addEventListener("click", openAddCardForm);
 addCardCloseButton.addEventListener("click", closePopup);
@@ -233,4 +232,21 @@ initialCards.forEach((card) => {
   const initialCardElement = initialCard.generateCard();
 
   elementsList.prepend(initialCardElement);
+});
+
+formsList.forEach((form) => {
+  const formValidator = new FormValidator(
+    {
+      inputSelector: ".form__input",
+      submitButtonSelector: ".form__save",
+      inactiveButtonClass: "form__save_disabled",
+      inputErrorClass: "form__input_invalid",
+      errorClass: "form__input-error_active",
+    },
+    form
+  );
+
+  validatorsList.push({ validator: formValidator, id: form.id });
+
+  formValidator.enableValidation();
 });
