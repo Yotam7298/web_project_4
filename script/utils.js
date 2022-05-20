@@ -1,10 +1,12 @@
 import Card from "./Card.js";
-import {
-  editProfilePopup,
-  addCardForm,
-  validatorsList,
-  elementsList,
-} from "./index.js";
+
+export const validatorsList = [];
+export const elementsList = document.querySelector(".elements__list");
+
+export const addCardPopup = document.querySelector(".add-popup");
+export const editProfilePopup = document.querySelector(".edit-popup");
+
+export const elementSelector = ".elements__list-item";
 
 const nameField = document.querySelector("#name-input");
 const aboutField = document.querySelector("#about-input");
@@ -14,14 +16,13 @@ const currentAbout = document.querySelector(".profile__about");
 const titleField = document.querySelector("#title-input");
 const linkField = document.querySelector("#link-input");
 
+const imagePopup = document.querySelector(".image-popup");
+const popupImage = imagePopup.querySelector(".image-popup__image");
+const popupCaption = imagePopup.querySelector(".image-popup__caption");
+
 export function openEditProfileForm() {
   fillProfileForm();
   openPopup(editProfilePopup);
-
-  const currentValidator = getFormValidator(
-    editProfilePopup.querySelector(".form")
-  );
-  currentValidator.resetValidation();
 }
 
 function fillProfileForm() {
@@ -37,13 +38,9 @@ export function saveProfileButtonHandler(evt) {
 }
 
 export function openAddCardForm() {
-  addCardForm.querySelector(".form").reset();
+  addCardPopup.querySelector(".form").reset();
 
-  openPopup(addCardForm);
-
-  const currentValidator = getFormValidator(addCardForm.querySelector(".form"));
-
-  currentValidator.resetValidation();
+  openPopup(addCardPopup);
 }
 
 export function createButtonHandler(evt) {
@@ -54,7 +51,7 @@ export function createButtonHandler(evt) {
       name: titleField.value,
       link: linkField.value,
     },
-    ".elements__list-item"
+    elementSelector
   );
 
   elementsList.prepend(newCard.generateCard());
@@ -62,8 +59,9 @@ export function createButtonHandler(evt) {
   closePopup();
 }
 
-function getFormValidator(form) {
-  return validatorsList.find((valid) => valid.id === form.id).validator;
+function getFormValidator(formContainer) {
+  const formId = formContainer.querySelector(".form").id;
+  return validatorsList.find((valid) => valid.id === formId).validator;
 }
 
 export function openPopup(popup) {
@@ -76,7 +74,17 @@ export function closePopup() {
 
   openPopup.classList.remove("popup_opened");
 
+  const currentValidator = getFormValidator(openPopup);
+  currentValidator.resetValidation();
+
   removePopupClosingListeners(openPopup);
+}
+
+export function openImagePopup(card, evt) {
+  openPopup(imagePopup);
+  popupImage.src = evt.target.src;
+  popupImage.alt = evt.target.alt;
+  popupCaption.textContent = card.name;
 }
 
 function addPopupClosingListeners(popup) {
