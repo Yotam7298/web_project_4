@@ -6,51 +6,37 @@ export default class FormValidator {
     this._inputErrorClass = config.inputErrorClass;
     this._errorClass = config.errorClass;
 
-    this._formSelector = form;
+    this._formElement = form;
+
+    this._inputList = Array.from(
+      this._formElement.querySelectorAll(this._inputSelector)
+    );
+    this._buttonElement = this._formElement.querySelector(
+      this._submitButtonSelector
+    );
   }
 
   resetValidation() {
-    const validationElements = this._getVariables();
-
-    this._toggleButtonState(
-      validationElements.inputs,
-      validationElements.button
-    );
-    validationElements.inputs.forEach((input) => {
+    this._toggleButtonState(this._inputList, this._buttonElement);
+    this._inputList.forEach((input) => {
       this._hideInputError(input);
     });
   }
 
   enableValidation() {
-    this._formSelector.addEventListener("submit", (evt) => {
+    this._formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
     this._setEventListeners();
   }
 
   _setEventListeners() {
-    const validationElements = this._getVariables();
-    const inputList = validationElements.inputs;
-    const buttonElement = validationElements.button;
-
-    inputList.forEach((inputElement) => {
+    this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement);
-        this._toggleButtonState(inputList, buttonElement);
+        this._toggleButtonState(this._inputList, this._buttonElement);
       });
     });
-  }
-
-  _getVariables() {
-    const inputList = Array.from(
-      this._formSelector.querySelectorAll(this._inputSelector)
-    );
-
-    const buttonElement = this._formSelector.querySelector(
-      this._submitButtonSelector
-    );
-
-    return { inputs: inputList, button: buttonElement };
   }
 
   _checkInputValidity(inputElement) {
@@ -62,7 +48,7 @@ export default class FormValidator {
   }
 
   _hideInputError(inputElement) {
-    const errorElement = this._formSelector.querySelector(
+    const errorElement = this._formElement.querySelector(
       `.${inputElement.id}-error`
     );
 
@@ -72,7 +58,7 @@ export default class FormValidator {
   }
 
   _showInputError(inputElement, errorMessage) {
-    const errorElement = this._formSelector.querySelector(
+    const errorElement = this._formElement.querySelector(
       `.${inputElement.id}-error`
     );
 

@@ -1,4 +1,4 @@
-import { openPopup } from "./utils.js";
+import { openImagePopup } from "./utils.js";
 
 export default class Card {
   constructor(data, cardSelector) {
@@ -17,39 +17,27 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._element
-      .querySelector(".element__remove-button")
-      .addEventListener("click", () => {
-        this._removeElement(this._element);
-      });
+    const removeButton = this._element.querySelector(".element__remove-button");
+    const elementImage = this._element.querySelector(".element__image");
+    const likeButton = this._element.querySelector(".element__like-button");
 
-    this._element
-      .querySelector(".element__image")
-      .addEventListener("click", (evt) => {
-        this._openImagePopup({ name: this._name, link: this._link }, evt);
-      });
-
-    this._element
-      .querySelector(".element__like-button")
-      .addEventListener("click", (evt) => {
-        evt.target.classList.toggle("element__like-button_active");
-      });
+    this._element.addEventListener("click", (evt) => {
+      switch (evt.target) {
+        case removeButton:
+          this._removeElement(this._element);
+          break;
+        case elementImage:
+          openImagePopup({ name: this._name, link: this._link }, evt);
+          break;
+        case likeButton:
+          evt.target.classList.toggle("element__like-button_active");
+          break;
+      }
+    });
   }
 
   _removeElement(element) {
     element.remove();
-  }
-
-  _openImagePopup(card, evt) {
-    const imagePopup = document.querySelector(".image-popup");
-
-    const popupImage = imagePopup.querySelector(".image-popup__image");
-    const popupCaption = imagePopup.querySelector(".image-popup__caption");
-
-    openPopup(imagePopup);
-    popupImage.src = evt.target.src;
-    popupImage.alt = evt.target.alt;
-    popupCaption.textContent = card.name;
   }
 
   generateCard() {
