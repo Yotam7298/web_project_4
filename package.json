@@ -1,0 +1,28 @@
+{
+  "name": "web_project_4",
+  "version": "1.0.0",
+  "description": "Practicum code project",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yotam7298/web_project_4.git"
+  },
+  "author": "Yotam Yakov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yotam7298/web_project_4/issues"
+  },
+  "homepage": "https://github.com/Yotam7298/web_project_4#readme",
+  "devDependencies": {
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.2"
+  },
+  "keywords": [
+    "Practicum"
+  ]
+}
