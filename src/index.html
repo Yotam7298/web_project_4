@@ -13,13 +13,12 @@
       content="practicum, photo, social, network, javascript"
     />
     <meta name="author" content="Yotam Yakov" />
-    <link rel="stylesheet" href="./pages/index.css" />
   </head>
   <body>
     <div class="page">
       <header class="header">
         <img
-          src="./images/around-logo.svg"
+          src="<%=require('./images/around-logo.svg')%>"
           alt="Around the us logo"
           class="logo"
         />
@@ -27,7 +26,7 @@
       <main class="content">
         <section class="profile">
           <img
-            src="./images/profile-avatar.png"
+            src="<%=require('./images/profile-avatar.png')%>"
             alt="profile picture of the current user"
             class="profile__avatar"
           />
@@ -155,9 +154,5 @@
         </article>
       </li>
     </template>
-    <script type="module" src="./script/index.js"></script>
-    <script type="module" src="./script/Card.js"></script>
-    <script type="module" src="./script/FormValidator.js"></script>
-    <script type="module" src="./script/utils.js"></script>
   </body>
 </html>
