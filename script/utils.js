@@ -8,10 +8,15 @@ export const elementsList = document.querySelector(".elements__list");
 
 export const elementSelector = ".elements__list-item";
 
-export const nameField = document.querySelector("#name-input");
-export const aboutField = document.querySelector("#about-input");
-export const currentName = document.querySelector(".profile__name-text");
-export const currentAbout = document.querySelector(".profile__about");
+export const userDataInput = {
+  name: document.querySelector("#name-input"),
+  title: document.querySelector("#about-input"),
+};
+
+// export const nameField = document.querySelector("#name-input");
+// export const aboutField = document.querySelector("#about-input");
+// export const currentName = document.querySelector(".profile__name-text");
+// export const currentAbout = document.querySelector(".profile__about");
 
 export const titleField = document.querySelector("#title-input");
 export const linkField = document.querySelector("#link-input");
@@ -25,10 +30,10 @@ export const linkField = document.querySelector("#link-input");
 //   openPopup(editProfilePopup);
 // }
 
-export function fillProfileForm() {
-  nameField.value = currentName.textContent;
-  aboutField.value = currentAbout.textContent;
-}
+// export function fillProfileForm() {
+//   nameField.value = currentName.textContent;
+//   aboutField.value = currentAbout.textContent;
+// }
 
 // export function saveProfileButtonHandler(evt) {
 //   evt.preventDefault();

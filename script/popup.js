@@ -21,7 +21,6 @@ export class Popup {
       this._handleClickClose(evt);
     });
     document.addEventListener("keydown", (evt) => {
-      console.log(evt);
       this._handleEscClose(evt);
     });
   }

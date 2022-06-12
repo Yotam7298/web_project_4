@@ -1,20 +1,17 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 import {
+  userDataInput,
   validatorsList,
   elementsList,
   elementSelector,
   titleField,
   linkField,
-  fillProfileForm,
-  nameField,
-  aboutField,
-  currentAbout,
-  currentName,
   resetValidator,
 } from "./utils.js";
 import Section from "./Section.js";
 import { PopupWithImage, PopupWithForm } from "./popup.js";
+import UserInfo from "./UserInfo.js";
 
 // CONSTANTS
 // EditProfile form consts
@@ -97,12 +94,13 @@ const initialSection = new Section(
 );
 initialSection.renderer();
 
+const NEWuserInfo = new UserInfo("#profile-name", "#profile-title");
+
 const NEWimagePopup = new PopupWithImage(".image-popup");
 
 const NEWeditProfilePopup = new PopupWithForm(".edit-popup", (evt) => {
   evt.preventDefault();
-  currentName.textContent = nameField.value;
-  currentAbout.textContent = aboutField.value;
+  NEWuserInfo.setUserInfo(userDataInput.name.value, userDataInput.title.value);
   NEWeditProfilePopup.close();
 });
 
@@ -125,9 +123,11 @@ const NEWaddCardPopup = new PopupWithForm(".add-popup", (evt) => {
 // EVENT LISTENERS
 // Edit Profile form listeners
 editProfileButton.addEventListener("click", () => {
-  NEWeditProfilePopup.open();
-  fillProfileForm();
+  const userInfo = NEWuserInfo.getUserInfo();
+  userDataInput.name.value = userInfo.name;
+  userDataInput.title.value = userInfo.title;
 
+  NEWeditProfilePopup.open();
   resetValidator();
 });
 editProfileCloseButton.addEventListener("click", () => {
