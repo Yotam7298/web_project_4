@@ -49,7 +49,11 @@
       </footer>
       <div class="edit-popup popup">
         <div class="edit-popup__container">
-          <button type="button" class="edit-popup__close-button"></button>
+          <button
+            id="close-button"
+            type="button"
+            class="edit-popup__close-button"
+          ></button>
           <h2 class="edit-popup__title">Edit profile</h2>
           <form class="form edit-popup__form" id="edit-popup__form" novalidate>
             <fieldset class="form__fieldset">
@@ -82,7 +86,11 @@
       </div>
       <div class="add-popup popup">
         <div class="add-popup__container">
-          <button type="button" class="add-popup__close-button"></button>
+          <button
+            id="close-button"
+            type="button"
+            class="add-popup__close-button"
+          ></button>
           <h2 class="add-popup__title">New place</h2>
           <form class="form add-popup__form" id="add-popup__form" novalidate>
             <fieldset class="form__fieldset">
@@ -114,13 +122,18 @@
       </div>
       <div class="image-popup popup">
         <div class="image-popup__container">
-          <button type="button" class="image-popup__close-button"></button>
+          <button
+            id="close-button"
+            type="button"
+            class="image-popup__close-button"
+          ></button>
           <img
+            id="popup-image"
             src="#"
             alt="enlarged user uploaded picture"
             class="image-popup__image"
           />
-          <p class="image-popup__caption"></p>
+          <p id="popup-caption" class="image-popup__caption">caption</p>
         </div>
       </div>
     </div>
