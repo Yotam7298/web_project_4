@@ -23,7 +23,7 @@ export default class Card {
     this._element.addEventListener("click", (evt) => {
       switch (evt.target) {
         case removeButton:
-          this._removeElement(this._element);
+          this._removeElement();
           break;
         case elementImage:
           this._handleCardClick(evt);
@@ -35,21 +35,24 @@ export default class Card {
     });
   }
 
-  _removeElement(element) {
-    element.remove();
+  _removeElement() {
+    this._element.remove();
+    this._element = null;
   }
 
   generateCard() {
     this._element = this._getTemplate();
 
+    const elementImage = this._element.querySelector(".element__image");
+    const elementCaption = this._element.querySelector(
+      ".element__caption-text"
+    );
+
     this._setEventListeners();
 
-    this._element.querySelector(".element__caption-text").textContent =
-      this._name;
-    this._element.querySelector(".element__image").src = this._link;
-    this._element.querySelector(
-      ".element__image"
-    ).alt = `user uploaded picture named ${this._name}`;
+    elementCaption.textContent = this._name;
+    elementImage.src = this._link;
+    elementImage.alt = `Photo of ${this._name}`;
 
     return this._element;
   }

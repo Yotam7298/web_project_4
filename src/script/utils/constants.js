@@ -11,9 +11,6 @@ const userDataInput = {
 // AddCard form consts
 const addCardButton = document.querySelector(".profile__add-button");
 const addCardCloseButton = document.querySelector(".add-popup__close-button");
-const titleField = document.querySelector("#title-input");
-const linkField = document.querySelector("#link-input");
-const elementsList = document.querySelector(".elements__list");
 const elementSelector = ".elements__list-item";
 
 // Image popup consts
@@ -65,9 +62,6 @@ export {
   userDataInput,
   addCardButton,
   addCardCloseButton,
-  titleField,
-  linkField,
-  elementsList,
   elementSelector,
   imageCloseButton,
   validatorsList,
