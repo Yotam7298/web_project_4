@@ -1,9 +1,4 @@
-import { validatorsList, userDataInput } from "./constants.js";
-
-export function fillProfileForm(currentInfo) {
-  userDataInput.name.value = currentInfo.name;
-  userDataInput.title.value = currentInfo.title;
-}
+import { validatorsList } from "./constants.js";
 
 export function getFormValidator(formContainer) {
   const formId = formContainer.querySelector(".form").id;
@@ -11,7 +6,7 @@ export function getFormValidator(formContainer) {
 }
 
 export function resetValidator() {
-  const openPopup = document.querySelector(".popup_opened");
-  const currentValidator = getFormValidator(openPopup);
+  const openedPopup = document.querySelector(".popup_opened");
+  const currentValidator = getFormValidator(openedPopup);
   currentValidator.resetValidation();
 }

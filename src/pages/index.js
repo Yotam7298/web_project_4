@@ -19,7 +19,12 @@ import {
   config,
   initialCards,
 } from "../script/utils/constants.js";
-import { resetValidator, fillProfileForm } from "../script/utils/utils.js";
+import { resetValidator } from "../script/utils/utils.js";
+
+function fillProfileForm(currentInfo) {
+  userDataInput.name.value = currentInfo.name;
+  userDataInput.title.value = currentInfo.title;
+}
 
 //Classes instances
 
