@@ -1,5 +1,6 @@
 import "./index.css";
 
+import Api from "../script/components/Api.js";
 import Card from "../script/components/Card.js";
 import FormValidator from "../script/components/FormValidator.js";
 import Section from "../script/components/Section.js";
@@ -27,6 +28,14 @@ function fillProfileForm(currentInfo) {
 }
 
 //Classes instances
+
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/",
+  headers: {
+    authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
+    "Content-Type": "application/json",
+  },
+});
 
 const userInfo = new UserInfo("#profile-name", "#profile-title");
 
