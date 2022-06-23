@@ -10,27 +10,22 @@ export default class Api {
     return Promise.reject(`Something went wrong, Error: ${res.status}`);
   }
 
-  gerUserInfo() {
-    return fetch(`${this._options.baseurl}/users/me`, {
+  getUserInfo() {
+    return fetch(`${this._options.baseUrl}/users/me`, {
       headers: this._options.headers,
     })
       .then((res) => {
         return this._verifyResponse(res);
       })
-      .then((data) => {
-        const userInfo = {};
-
-        userInfo.name = data.name;
-        userInfo.about = data.about;
-
-        return userInfo;
+      .then((res) => {
+        return res;
       })
       .catch((err) => console.log(err));
     //   .finally(() => console.log("getUserInfo is done"));
   }
 
   getInitialCards() {
-    return fetch(`${this._options.baseurl}/cards`, {
+    return fetch(`${this._options.baseUrl}/cards`, {
       headers: this._options.headers,
     })
       .then((res) => {
@@ -45,7 +40,7 @@ export default class Api {
   }
 
   editProfileInfo(userNewInfo) {
-    return fetch(`${this._options.baseurl}/users/me`, {
+    return fetch(`${this._options.baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._options.headers,
       body: JSON.stringify({
@@ -66,7 +61,7 @@ export default class Api {
   }
 
   editProfilePicture(avatarUrl) {
-    return fetch(`${this._options.baseurl}/users/me/avatar`, {
+    return fetch(`${this._options.baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._options.headers,
       body: JSON.stringify(avatarUrl),
@@ -84,7 +79,7 @@ export default class Api {
   }
 
   addNewCard(cardNewInfo) {
-    return fetch(`${this._options.baseurl}/cards`, {
+    return fetch(`${this._options.baseUrl}/cards`, {
       method: "POST",
       headers: this._options.headers,
       body: JSON.stringify({
@@ -105,7 +100,7 @@ export default class Api {
   }
 
   deleteCard(cardId) {
-    return fetch(`${this._options.baseurl}/cards/${cardId}`, {
+    return fetch(`${this._options.baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: this._options.headers,
     })
@@ -122,7 +117,7 @@ export default class Api {
   }
 
   getCardLikes(cardId) {
-    return fetch(`${this._options.baseurl}/cards/likes/${cardId}`, {
+    return fetch(`${this._options.baseUrl}/cards/likes/${cardId}`, {
       headers: this._options.headers,
     })
       .then((res) => {
@@ -130,6 +125,31 @@ export default class Api {
       })
       .then((res) => {
         return res;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  addCardLike(cardId) {
+    return fetch(`${this._options.baseUrl}/cards/likes/${cardId}`, {
+      method: PUT,
+      headers: this._options.headers,
+      body: JSON.stringify(),
+    });
+  }
+
+  removeCardLike(cardId) {
+    return fetch(`${this._options.baseUrl}/cards/likes/${cardId}`, {
+      method: DELETE,
+      headers: this._options.headers,
+    })
+      .then((res) => {
+        return this._verifyResponse(res);
+      })
+      .then((res) => {
+        console.log("Request was successful");
+        console.log(res);
       })
       .catch((err) => {
         console.log(err);

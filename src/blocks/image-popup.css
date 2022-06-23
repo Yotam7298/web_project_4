@@ -1,22 +1,3 @@
-.image-popup {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  height: 100%;
-  overflow: hidden;
-  transition: opacity 0.2s linear, z-index 0.2s linear;
-  z-index: -1;
-}
-
-.popup_opened {
-  opacity: 1;
-  z-index: 1;
-  transition: opacity 0.2s linear;
-}
-
 .image-popup__container {
   position: fixed;
   top: 50%;

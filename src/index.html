@@ -32,9 +32,7 @@
           />
           <div class="profile__info">
             <h1 class="profile__name">
-              <span id="profile-name" class="profile__name-text"
-                >Jacques Cousteau</span
-              >
+              <span id="profile-name" class="profile__name-text">J</span>
               <button type="button" class="profile__edit-button"></button>
             </h1>
             <p id="profile-title" class="profile__about">Explorer</p>
@@ -49,12 +47,12 @@
         <p class="footer__copyright">© 2021 Around The U.S.</p>
       </footer>
       <div class="edit-popup popup">
-        <div class="edit-popup__container">
+        <div class="edit-popup__container popup__container">
           <button
             type="button"
-            class="edit-popup__close-button close-button"
+            class="edit-popup__close-button popup__close-button close-button"
           ></button>
-          <h2 class="edit-popup__title">Edit profile</h2>
+          <h2 class="edit-popup__title popup__title">Edit profile</h2>
           <form class="form edit-popup__form" id="edit-popup__form" novalidate>
             <fieldset class="form__fieldset">
               <input
@@ -85,12 +83,12 @@
         </div>
       </div>
       <div class="add-popup popup">
-        <div class="add-popup__container">
+        <div class="add-popup__container popup__container">
           <button
             type="button"
-            class="add-popup__close-button close-button"
+            class="add-popup__close-button popup__close-button close-button"
           ></button>
-          <h2 class="add-popup__title">New place</h2>
+          <h2 class="add-popup__title popup__title">New place</h2>
           <form class="form add-popup__form" id="add-popup__form" novalidate>
             <fieldset class="form__fieldset">
               <input
@@ -132,6 +130,19 @@
             class="image-popup__image"
           />
           <p id="popup-caption" class="image-popup__caption">caption</p>
+        </div>
+      </div>
+      <div class="delete-popup popup">
+        <div class="delete-popup__container popup__container">
+          <button
+            type="button"
+            class="delete-popup__close-button popup__close-button close-button"
+          ></button>
+          <h2 class="delete-popup__title popup__title">Are you sure?</h2>
+          <button
+            type="button"
+            class="delete-popup__confirm-button popup__button"
+          ></button>
         </div>
       </div>
     </div>

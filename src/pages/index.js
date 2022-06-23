@@ -30,9 +30,9 @@ function fillProfileForm(currentInfo) {
 //Classes instances
 
 const api = new Api({
-  baseUrl: "https://around.nomoreparties.co/v1/",
+  baseUrl: "https://around.nomoreparties.co/v1/cohort-3-en",
   headers: {
-    authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
+    authorization: "f800af66-4bca-42fd-8139-117d10b5a510",
     "Content-Type": "application/json",
   },
 });
@@ -111,4 +111,8 @@ formsList.forEach((form) => {
   validatorsList.push({ validator: formValidator, id: form.id });
 
   formValidator.enableValidation();
+});
+
+api.getUserInfo().then((userParameters) => {
+  userInfo.setUserInfo(userParameters.name, userParameters.about);
 });

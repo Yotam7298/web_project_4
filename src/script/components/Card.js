@@ -23,7 +23,8 @@ export default class Card {
     this._element.addEventListener("click", (evt) => {
       switch (evt.target) {
         case removeButton:
-          this._removeElement();
+          this._confirmDelete(evt);
+          // this._removeElement();
           break;
         case elementImage:
           this._handleCardClick(evt);
@@ -35,10 +36,28 @@ export default class Card {
     });
   }
 
-  _removeElement() {
-    this._element.remove();
-    this._element = null;
+  _confirmDelete(evt) {
+    const deletePopup = document.querySelector(".delete-popup");
+    const confirmButton = document.querySelector(
+      ".delete-popup__confirm-button"
+    );
+    const card = evt.currentTarget;
+
+    deletePopup.classList.add("popup_opened");
+
+    confirmButton.addEventListener("click", () => {
+      this._handleConfirmButton(card, deletePopup);
+    });
   }
+
+  // _handleConfirmButton(card, deletePopup) {
+  //   deletePopup.classList.remove("popup_opened");
+  //   this._removeElement();
+  // }
+
+  // _removeElement() {
+  //   this._element.remove();
+  // }
 
   generateCard() {
     this._element = this._getTemplate();
