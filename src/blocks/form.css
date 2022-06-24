@@ -1,5 +1,5 @@
 .form__fieldset {
-  margin: calc(76px - 22 * ((100vw - 320px) / 960)) 0
+  margin: calc(46px - 22 * ((100vw - 320px) / 960)) 0
     calc(25px + 11.5 * ((100vw - 320px) / 960)) 0;
   max-width: 430px;
   padding: 0;
@@ -21,6 +21,7 @@
   font-size: 14px;
   line-height: 1.95em;
   transition: background-color 0.2s linear;
+  margin-top: 30px;
 }
 
 .form__input:focus {
@@ -30,10 +31,6 @@
 
 .form__input_invalid {
   border-bottom: 1px solid red;
-}
-
-.form__input:last-of-type {
-  margin-top: 30px;
 }
 
 .form__input-error {
@@ -63,9 +60,12 @@
 }
 
 .form__save {
-  background-color: white;
+  background-color: black;
   background-position: center;
   background-repeat: no-repeat;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  color: white;
   padding: 0;
   width: calc(238px + 120 * ((100vw - 320px) / 960));
   max-width: 358px;
@@ -73,12 +73,13 @@
   height: calc(46px + 4 * ((100vw - 320px) / 960));
   margin-top: calc(46px + 2 * ((100vw - 320px) / 960));
   transition: opacity 0.2s linear;
-  background-image: url(../images/save-button.svg);
 }
 
 .form__save_disabled {
-  background-image: url(../images/save-button_disabled.svg);
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  opacity: 0.2;
   cursor: default;
 }
 
@@ -88,5 +89,6 @@
 }
 
 .form__save_disabled:hover {
+  opacity: 0.2;
   cursor: default;
 }

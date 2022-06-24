@@ -1,9 +1,21 @@
 export default class Card {
-  constructor(data, cardSelector, handleCardClick) {
-    this._name = data.name;
+  constructor(
+    data,
+    cardSelector,
+    handleCardClick,
+    handleRemoveElement,
+    handleLikeClick
+  ) {
+    this._title = data.name;
     this._link = data.link;
+    this._likes = data.likes;
+    this._cardId = data._id;
+    this._owner = data.owner;
+
     this._selector = cardSelector;
     this._handleCardClick = handleCardClick;
+    this._handleRemoveElement = handleRemoveElement;
+    this._handleLikeClick = handleLikeClick;
   }
 
   _getTemplate() {
@@ -23,55 +35,37 @@ export default class Card {
     this._element.addEventListener("click", (evt) => {
       switch (evt.target) {
         case removeButton:
-          this._confirmDelete(evt);
-          // this._removeElement();
+          this._handleRemoveElement(evt);
           break;
         case elementImage:
           this._handleCardClick(evt);
           break;
         case likeButton:
-          evt.target.classList.toggle("element__like-button_active");
+          this._handleLikeClick(evt);
           break;
       }
     });
   }
 
-  _confirmDelete(evt) {
-    const deletePopup = document.querySelector(".delete-popup");
-    const confirmButton = document.querySelector(
-      ".delete-popup__confirm-button"
-    );
-    const card = evt.currentTarget;
-
-    deletePopup.classList.add("popup_opened");
-
-    confirmButton.addEventListener("click", () => {
-      this._handleConfirmButton(card, deletePopup);
-    });
-  }
-
-  // _handleConfirmButton(card, deletePopup) {
-  //   deletePopup.classList.remove("popup_opened");
-  //   this._removeElement();
-  // }
-
-  // _removeElement() {
-  //   this._element.remove();
-  // }
-
   generateCard() {
     this._element = this._getTemplate();
+
+    this._element._id = this._cardId;
+    this._element.likes = this._likes;
+    this._element.owner = this._owner;
 
     const elementImage = this._element.querySelector(".element__image");
     const elementCaption = this._element.querySelector(
       ".element__caption-text"
     );
+    const elementLikes = this._element.querySelector(".element__like-counter");
 
     this._setEventListeners();
 
-    elementCaption.textContent = this._name;
+    elementCaption.textContent = this._title;
     elementImage.src = this._link;
-    elementImage.alt = `Photo of ${this._name}`;
+    elementImage.alt = `Photo of ${this._title}`;
+    elementLikes.textContent = this._likes.length;
 
     return this._element;
   }

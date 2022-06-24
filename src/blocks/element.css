@@ -10,6 +10,7 @@
 }
 
 .element__remove-button {
+  display: none;
   background-image: url(../images/remove-button.svg);
   background-color: transparent;
   border: none;
@@ -22,6 +23,10 @@
   right: 15px;
   cursor: pointer;
   transition: opacity 0.2s linear;
+}
+
+.element__remove-button_owner {
+  display: block;
 }
 
 .element__remove-button:hover {
@@ -57,6 +62,12 @@
   max-width: 220px;
 }
 
+.element__like-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .element__like-button {
   background-color: white;
   background-image: url(../images/like-button.svg);
@@ -75,4 +86,10 @@
 
 .element__like-button:hover {
   opacity: 0.5;
+}
+
+.element__like-counter {
+  font-family: Inter, sans-serif;
+  margin-top: 3px;
+  font-size: 13px;
 }

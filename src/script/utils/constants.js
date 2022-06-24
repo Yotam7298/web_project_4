@@ -1,20 +1,16 @@
 // EditProfile form consts
 const editProfileButton = document.querySelector(".profile__edit-button");
-const editProfileCloseButton = document.querySelector(
-  ".edit-popup__close-button"
-);
+
 const userDataInput = {
   name: document.querySelector("#name-input"),
-  title: document.querySelector("#about-input"),
+  about: document.querySelector("#about-input"),
 };
+const editAvatarButton = document.querySelector(".profile__avatar-edit");
 
 // AddCard form consts
 const addCardButton = document.querySelector(".profile__add-button");
-const addCardCloseButton = document.querySelector(".add-popup__close-button");
 const elementSelector = ".elements__list-item";
-
-// Image popup consts
-const imageCloseButton = document.querySelector(".image-popup__close-button");
+const elementsContainer = document.querySelector(".elements__list");
 
 // Validator consts
 const validatorsList = [];
@@ -29,43 +25,14 @@ const config = {
   errorClass: "form__input-error_active",
 };
 
-const initialCards = [
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
-  },
-  {
-    name: "Yosemite Valley",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
-  },
-];
-
 export {
   editProfileButton,
-  editProfileCloseButton,
+  editAvatarButton,
   userDataInput,
   addCardButton,
-  addCardCloseButton,
   elementSelector,
-  imageCloseButton,
+  elementsContainer,
   validatorsList,
   formsList,
   config,
-  initialCards,
 };

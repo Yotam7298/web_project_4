@@ -10,6 +10,11 @@ export default class Api {
     return Promise.reject(`Something went wrong, Error: ${res.status}`);
   }
 
+  _logInfo(res) {
+    console.log("Request was successful:");
+    console.log(res);
+  }
+
   getUserInfo() {
     return fetch(`${this._options.baseUrl}/users/me`, {
       headers: this._options.headers,
@@ -21,10 +26,9 @@ export default class Api {
         return res;
       })
       .catch((err) => console.log(err));
-    //   .finally(() => console.log("getUserInfo is done"));
   }
 
-  getInitialCards() {
+  loadCards(userId) {
     return fetch(`${this._options.baseUrl}/cards`, {
       headers: this._options.headers,
     })
@@ -32,11 +36,9 @@ export default class Api {
         return this._verifyResponse(res);
       })
       .then((cardsArray) => {
-        return cardsArray;
+        return { array: cardsArray, id: userId };
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => console.log(err));
   }
 
   editProfileInfo(userNewInfo) {
@@ -52,30 +54,27 @@ export default class Api {
         return this._verifyResponse(res);
       })
       .then((res) => {
-        console.log("Request was successful");
-        console.log(res);
+        return res;
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => console.log(err));
   }
 
   editProfilePicture(avatarUrl) {
     return fetch(`${this._options.baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._options.headers,
-      body: JSON.stringify(avatarUrl),
+      body: JSON.stringify({
+        avatar: avatarUrl.avatar,
+      }),
     })
       .then((res) => {
         return this._verifyResponse(res);
       })
       .then((res) => {
-        console.log("Request was successful");
-        console.log(res);
+        this._logInfo(res);
+        return res;
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => console.log(err));
   }
 
   addNewCard(cardNewInfo) {
@@ -83,7 +82,7 @@ export default class Api {
       method: "POST",
       headers: this._options.headers,
       body: JSON.stringify({
-        name: cardNewInfo.name,
+        name: cardNewInfo.title,
         link: cardNewInfo.link,
       }),
     })
@@ -91,12 +90,9 @@ export default class Api {
         return this._verifyResponse(res);
       })
       .then((res) => {
-        console.log("Request was successful");
-        console.log(res);
+        this._logInfo(res);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => console.log(err));
   }
 
   deleteCard(cardId) {
@@ -108,51 +104,23 @@ export default class Api {
         return this._verifyResponse(res);
       })
       .then((res) => {
-        console.log("Request was successful");
-        console.log(res);
+        this._logInfo(res);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => console.log(err));
   }
 
-  getCardLikes(cardId) {
+  changeCardLike(cardId, method) {
     return fetch(`${this._options.baseUrl}/cards/likes/${cardId}`, {
+      method: method,
       headers: this._options.headers,
     })
       .then((res) => {
         return this._verifyResponse(res);
       })
       .then((res) => {
+        this._logInfo(res);
         return res;
       })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
-  addCardLike(cardId) {
-    return fetch(`${this._options.baseUrl}/cards/likes/${cardId}`, {
-      method: PUT,
-      headers: this._options.headers,
-      body: JSON.stringify(),
-    });
-  }
-
-  removeCardLike(cardId) {
-    return fetch(`${this._options.baseUrl}/cards/likes/${cardId}`, {
-      method: DELETE,
-      headers: this._options.headers,
-    })
-      .then((res) => {
-        return this._verifyResponse(res);
-      })
-      .then((res) => {
-        console.log("Request was successful");
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => console.log(err));
   }
 }
