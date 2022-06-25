@@ -15,6 +15,18 @@ export default class Api {
     console.log(res);
   }
 
+  getAllInfo() {
+    return Promise.all([this.getUserInfo(), this.loadCards()]).then(
+      (values) => {
+        // console.log("User Data:");
+        // console.log(values[0]);
+        // console.log("Cards Data:");
+        // console.log(values[1]);
+        return values;
+      }
+    );
+  }
+
   getUserInfo() {
     return fetch(`${this._options.baseUrl}/users/me`, {
       headers: this._options.headers,
@@ -28,15 +40,15 @@ export default class Api {
       .catch((err) => console.log(err));
   }
 
-  loadCards(userId) {
+  loadCards() {
     return fetch(`${this._options.baseUrl}/cards`, {
       headers: this._options.headers,
     })
       .then((res) => {
         return this._verifyResponse(res);
       })
-      .then((cardsArray) => {
-        return { array: cardsArray, id: userId };
+      .then((res) => {
+        return res;
       })
       .catch((err) => console.log(err));
   }

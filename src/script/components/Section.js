@@ -5,14 +5,14 @@ export default class Section {
     this._container = document.querySelector(containerSelector);
   }
 
-  renderer(properties) {
-    properties.array
+  renderer(items, mods) {
+    items
       .slice()
       .reverse()
       .forEach((item) => {
         const element = this._renderer(item);
 
-        this._modifier(element, properties.id);
+        this._modifier(element, mods);
 
         this.addItem(element);
       });

@@ -11,8 +11,8 @@ import UserInfo from "../script/components/UserInfo.js";
 import {
   editProfileButton,
   editAvatarButton,
-  userDataInput,
   addCardButton,
+  userDataInput,
   elementSelector,
   elementsContainer,
   validatorsList,
@@ -26,24 +26,24 @@ function fillProfileForm(currentInfo) {
   userDataInput.about.value = currentInfo.about;
 }
 
-function renderUserInfo() {
-  api.getUserInfo().then((userParameters) => {
-    userInfo.setUserInfo(userParameters);
-    userInfo.setUserAvatar(userParameters.avatar);
-    console.log(`User object:`);
-    console.log(userParameters);
+function renderInitialInfo() {
+  api.getAllInfo().then((data) => {
+    const userData = data[0];
+    const cardsData = data[1];
 
-    return userParameters;
+    userInfo.setUserInfo(userData);
+    userInfo.setUserAvatar(userData.avatar);
+
+    cardsSection.renderer(cardsData, userData._id);
   });
 }
 
 function renderCards() {
-  api.getUserInfo().then((userParameters) => {
-    api.loadCards(userParameters._id).then((properties) => {
-      cardsSection.renderer(properties);
-      console.log(`Cards Array:`);
-      console.log(properties.array);
-    });
+  api.getAllInfo().then((data) => {
+    const userData = data[0];
+    const cardsData = data[1];
+
+    cardsSection.renderer(cardsData, userData._id);
   });
 }
 
@@ -216,5 +216,8 @@ formsList.forEach((form) => {
   formValidator.enableValidation();
 });
 
-renderUserInfo();
-renderCards();
+// renderUserInfo();
+// renderCards();
+// api.getAllInfo();
+
+renderInitialInfo();
