@@ -2,15 +2,18 @@ export default class Card {
   constructor(
     data,
     cardSelector,
+    userId,
     handleCardClick,
     handleRemoveElement,
     handleLikeClick
   ) {
     this._title = data.name;
     this._link = data.link;
-    this._likes = data.likes;
     this._cardId = data._id;
+    this._likes = data.likes;
     this._owner = data.owner;
+
+    this._userId = userId;
 
     this._selector = cardSelector;
     this._handleCardClick = handleCardClick;
@@ -19,12 +22,12 @@ export default class Card {
   }
 
   _getTemplate() {
-    const cardElement = document
+    const cardTemplate = document
       .querySelector("#element")
       .content.querySelector(this._selector)
       .cloneNode(true);
 
-    return cardElement;
+    return cardTemplate;
   }
 
   _setEventListeners() {
@@ -47,11 +50,39 @@ export default class Card {
     });
   }
 
+  isLiked() {
+    return this._likes.some((like) => like._id === this._userId);
+  }
+
+  _renderLikes() {
+    const likeCounter = this._element.querySelector(".element__like-counter");
+    const likeButton = this._element.querySelector(".element__like-button");
+
+    likeCounter.textContent = this._likes.length;
+    if (this.isLiked()) {
+      likeButton.classList.add("element__like-button_active");
+    } else {
+      likeButton.classList.remove("element__like-button_active");
+    }
+  }
+
+  _renderDeleteButton() {
+    const removeButton = this._element.querySelector(".element__remove-button");
+
+    if (this._owner._id === this._userId) {
+      removeButton.classList.add("element__remove-button_owner");
+    }
+  }
+
+  updateLikes(likes) {
+    this._likes = likes;
+    this._renderLikes();
+  }
+
   generateCard() {
     this._element = this._getTemplate();
 
     this._element._id = this._cardId;
-    this._element.likes = this._likes;
     this._element.owner = this._owner;
 
     const elementImage = this._element.querySelector(".element__image");
@@ -61,6 +92,8 @@ export default class Card {
     const elementLikes = this._element.querySelector(".element__like-counter");
 
     this._setEventListeners();
+    this._renderLikes();
+    this._renderDeleteButton();
 
     elementCaption.textContent = this._title;
     elementImage.src = this._link;

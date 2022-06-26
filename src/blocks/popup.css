@@ -60,17 +60,19 @@
 }
 
 .popup__button {
-  background-color: white;
+  background-color: black;
   background-position: center;
   background-repeat: no-repeat;
-  margin: 38px 36px 36px;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  color: white;
   padding: 0;
   width: calc(238px + 120 * ((100vw - 320px) / 960));
   max-width: 358px;
   border: none;
   height: calc(46px + 4 * ((100vw - 320px) / 960));
+  margin: 38px 36px 36px;
   transition: opacity 0.2s linear;
-  background-image: url(../images/confirm-button.svg);
 }
 
 .popup__button:hover {

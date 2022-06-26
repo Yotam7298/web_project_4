@@ -10,3 +10,17 @@ export function resetValidator() {
   const currentValidator = getFormValidator(openedPopup);
   currentValidator.resetValidation();
 }
+
+export function updateSaveButton(isSaving, formSelector) {
+  const form = document.querySelector(formSelector);
+  const submitButton = form.querySelector("#popup-submit");
+  if (isSaving) {
+    submitButton.textContent = "Saving...";
+  } else {
+    if ((formSelector = ".delete-popup")) {
+      submitButton.textContent = "Yes";
+    } else {
+      submitButton.textContent = "Save";
+    }
+  }
+}

@@ -7,7 +7,11 @@ export default class Api {
     if (res.ok) {
       return res.json();
     }
-    return Promise.reject(`Something went wrong, Error: ${res.status}`);
+    return Promise.reject(err);
+  }
+
+  reportError(err) {
+    console.log(`Something went wrong, Error: ${err.status}`);
   }
 
   _logInfo(res) {
@@ -18,10 +22,6 @@ export default class Api {
   getAllInfo() {
     return Promise.all([this.getUserInfo(), this.loadCards()]).then(
       (values) => {
-        // console.log("User Data:");
-        // console.log(values[0]);
-        // console.log("Cards Data:");
-        // console.log(values[1]);
         return values;
       }
     );
@@ -31,26 +31,22 @@ export default class Api {
     return fetch(`${this._options.baseUrl}/users/me`, {
       headers: this._options.headers,
     })
+      .then(this._verifyResponse)
       .then((res) => {
-        return this._verifyResponse(res);
-      })
-      .then((res) => {
+        this._logInfo(res);
         return res;
-      })
-      .catch((err) => console.log(err));
+      });
   }
 
   loadCards() {
     return fetch(`${this._options.baseUrl}/cards`, {
       headers: this._options.headers,
     })
+      .then(this._verifyResponse)
       .then((res) => {
-        return this._verifyResponse(res);
-      })
-      .then((res) => {
+        this._logInfo(res);
         return res;
-      })
-      .catch((err) => console.log(err));
+      });
   }
 
   editProfileInfo(userNewInfo) {
@@ -62,13 +58,11 @@ export default class Api {
         about: userNewInfo.about,
       }),
     })
+      .then(this._verifyResponse)
       .then((res) => {
-        return this._verifyResponse(res);
-      })
-      .then((res) => {
+        this._logInfo(res);
         return res;
-      })
-      .catch((err) => console.log(err));
+      });
   }
 
   editProfilePicture(avatarUrl) {
@@ -79,14 +73,11 @@ export default class Api {
         avatar: avatarUrl.avatar,
       }),
     })
-      .then((res) => {
-        return this._verifyResponse(res);
-      })
+      .then(this._verifyResponse)
       .then((res) => {
         this._logInfo(res);
         return res;
-      })
-      .catch((err) => console.log(err));
+      });
   }
 
   addNewCard(cardNewInfo) {
@@ -98,13 +89,11 @@ export default class Api {
         link: cardNewInfo.link,
       }),
     })
-      .then((res) => {
-        return this._verifyResponse(res);
-      })
+      .then(this._verifyResponse)
       .then((res) => {
         this._logInfo(res);
-      })
-      .catch((err) => console.log(err));
+        return res;
+      });
   }
 
   deleteCard(cardId) {
@@ -112,13 +101,10 @@ export default class Api {
       method: "DELETE",
       headers: this._options.headers,
     })
-      .then((res) => {
-        return this._verifyResponse(res);
-      })
+      .then(this._verifyResponse)
       .then((res) => {
         this._logInfo(res);
-      })
-      .catch((err) => console.log(err));
+      });
   }
 
   changeCardLike(cardId, method) {
@@ -126,13 +112,10 @@ export default class Api {
       method: method,
       headers: this._options.headers,
     })
-      .then((res) => {
-        return this._verifyResponse(res);
-      })
+      .then(this._verifyResponse)
       .then((res) => {
         this._logInfo(res);
         return res;
-      })
-      .catch((err) => console.log(err));
+      });
   }
 }

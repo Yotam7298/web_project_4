@@ -12,6 +12,14 @@ export default class UserInfo {
     return userInfo;
   }
 
+  saveUserId(userId) {
+    this._userId = userId;
+  }
+
+  getUserId() {
+    return this._userId;
+  }
+
   setUserInfo(newUserParameters) {
     this._userName.textContent = newUserParameters.name;
     this._userAbout.textContent = newUserParameters.about;
