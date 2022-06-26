@@ -13,7 +13,7 @@ export function resetValidator() {
 
 export function updateSaveButton(isSaving, formSelector) {
   const form = document.querySelector(formSelector);
-  const submitButton = form.querySelector("#popup-submit");
+  const submitButton = form.querySelector(".submit-button");
   if (isSaving) {
     submitButton.textContent = "Saving...";
   } else {
